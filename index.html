@@ -27,20 +27,15 @@
         let hour = currentDate.getHours();
         let mins = currentDate.getMinutes();
         if ((hour == 11 || hour == 23 ) && minutes == 11 ) {
-            // Hey, look at that! It's your favorie time!
-            return "https://download.samplelib.com/mp3/sample-3s.mp3";
+            return "./src/media/audio/FavoriteTime.mp3";
         } else if (hour < 4) {
-            // Sorry your having trouble sleeping. Everything will be okay. Just close your eyes and go back to sleep. I love you, sweetheart!
-            return "https://download.samplelib.com/mp3/sample-3s.mp3";
+            return "./src/media/audio/GoBackToSleep.mp3";
         } else if (hour < 10) {
-            // Good morning sweet heart! I hope you slept well! Have an amazing day, I love you!
-            return "https://download.samplelib.com/mp3/sample-3s.mp3";
+            return "./src/media/audio/Morning.mp3";
         } else if (hour < 20) {
-            // I hope your having a great day sweetheart! Love you!
-            return "https://download.samplelib.com/mp3/sample-3s.mp3";
+            return "./src/media/audio/GreatDay.mp3";
         } else {
-            // Good night sweetheart. Good night dino. Good night yeti. Good night blank. I hope you sleep amazing! Love you!
-            return "https://download.samplelib.com/mp3/sample-3s.mp3";
+            return "./src/media/audio/Night.mp3";
         }
     }
 
@@ -50,7 +45,7 @@
         console.log(audio);
         playSound(audio).then(() => {
             delay(1000).then( () => {
-            window.open('','_self').close()
+                window.close();
             });
         }).catch(error=>{
             console.log("error");
