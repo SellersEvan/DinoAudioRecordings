@@ -2,17 +2,24 @@
 
 <!-- Don't judge wrote this in like 10 mins -->
 <script>
+
+    let audio;
+
+
     function playSound ( url ) {
         return new Promise(function(resolve, reject) {   // return a promise
-            var audio = new Audio(url);                  // create audio wo/ src
-            audio.preload = "auto";                      // intend to play through
-            audio.onerror = reject;                      // on error, reject
-            audio.onended = resolve;                     // when done, resolve
-            audio.play().catch( () => {
-            document.getElementById("dino").addEventListener( "click", () => {
-                setup();
-                });
-            });
+            if (audio == null || audio.paused) {
+                audio = new Audio(url);
+                audio.preload = "auto";
+                audio.onerror = reject;
+                audio.onended = resolve;
+                audio.play().catch( () => {
+                document.getElementById("dino")
+                    .addEventListener( "click", () => {
+                        setup();
+                        });
+                    });
+            }
         });
     }
 
@@ -49,6 +56,7 @@
             });
         }).catch(error=>{
             console.log("error");
+            console.log(error);
         });
     }
 
