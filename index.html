@@ -33,7 +33,7 @@
         let currentDate = new Date();
         let hour = currentDate.getHours();
         let mins = currentDate.getMinutes();
-        if ((hour == 11 || hour == 23 ) && minutes == 11 ) {
+        if ((hour == 11 || hour == 23 ) && mins == 11 ) {
             return "./src/media/audio/FavoriteTime.mp3";
         } else if (hour < 4) {
             return "./src/media/audio/GoBackToSleep.mp3";
